@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8" />
+        <link rel="apple-touch-icon" sizes="76x76" href="Site/themed-images/pages/appple-icon/apple-icon.png">
+        <link rel="icon" type="image/png" href="Site/images/__unused/favicon.png">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
+        <title>DXF File Converter</title>
+        <meta name="description" content="Converts auto cad dxf file in pdf, jpg and png format" />
+        <meta name="keywords" content="DXF, Dxf converter, auto cad converter" />
+        <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,700%7CRoboto:300,400,700%7CMaterial+Icons" rel="stylesheet">
+        <link href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" rel="stylesheet" />
+        <link rel="stylesheet" href="viewer.css">
+    </head>
+
+    <body>
+        <header>
+            <div class="dxf-banner">
+                <img src="banner-dxf.jpeg" alt="">
+            </div>
+        </header>
+        <div id="dxf-container">
+            <main>
+                <div class="intro">
+                    <h3>DXF File Viewer &amp; Converter</h3> 
+                </div>
+                <div class="upload-container" id="drop-area">
+                    <i class="fa fa-cloud-upload-alt"></i>
+                    <p>Drop files or click here</p>
+                    <input type="file" id="fileInput" class="file-input">
+                    <label for="fileInput" class="file-label">
+                        Choose File
+                    </label>
+    
+                </div>
+                <div class="download-container">
+                    <div id="file-name-display" style="font-weight: bold;"></div>
+                    <div class="button-container">
+                        <div class="download-options">
+                            <label for="format" class="label-select">Select Format:</label>
+                            <select class="select-format" id="format">
+                                <option value="png">PNG</option>
+                                <option value="jpg">JPG</option>
+                                <option value="pdf">PDF</option>
+                            </select>
+                            <button id="downloadBtn" class="download-button">Download</button>
+                            <button id="rotateBtn" class="rotate-btn">Rotate 90°</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="canvas-container">
+                    <canvas id="dxfCanvas"></canvas>
+                </div>
+            </main>
+        </div>
+        <footer class="dxf-footer">
+            <div class="footer-container">
+                <div class="footer-content">
+                    <div class="footer-logo">
+                        <h3>DXF File Converter</h3>
+                        <p>Convert your DXF files with ease</p>
+                    </div>
+                    <div class="footer-links">
+                        <h4>Quick Links</h4>
+                        <ul>
+                            <li><a href="#">Home</a></li>
+                            <li><a href="#">About</a></li>
+                            <li><a href="#">FAQ</a></li>
+                            <li><a href="#">Contact</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-social">
+                        <h4>Connect With Us</h4>
+                        <div class="social-icons">
+                            <a href="https://linkedin.com/in/yourprofile" target="_blank" aria-label="LinkedIn">
+                                <i class="fab fa-linkedin"></i>
+                            </a>
+                            <a href="https://github.com/yourusername" target="_blank" aria-label="GitHub">
+                                <i class="fab fa-github"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <p>&copy; 2025 DXF File Converter. All rights reserved.</p>
+                </div>
+            </div>
+        </footer>
+
+        <!--   Core JS Files   -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r162/three.min.js"></script>
+        <script src="https://unpkg.com/dxf-parser/dist/dxf-parser.js"></script>
+        <script src="converter.js"></script>
+
+    </body>
+
+</html>

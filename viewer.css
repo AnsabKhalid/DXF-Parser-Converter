@@ -1,0 +1,455 @@
+/*
+html5doctor.com Reset Stylesheet
+v1.6.1
+Last Updated: 2010-09-17
+Author: Richard Clark - http://richclarkdesign.com
+Twitter: @rich_clark
+*/
+
+html, body, div, span, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+abbr, address, cite, code,
+del, dfn, em, img, ins, kbd, q, samp,
+small, strong, sub, sup, var,
+b, i,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section, summary,
+time, mark, audio, video {
+    margin:0;
+    padding:0;
+    border:0;
+    outline:0;
+    font-size:100%;
+    vertical-align:baseline;
+    background:transparent;
+}
+
+body {
+    line-height:1;
+}
+
+article,aside,details,figcaption,figure,
+footer,header,hgroup,menu,nav,section {
+    display:block;
+}
+
+nav ul {
+    list-style:none;
+}
+
+blockquote, q {
+    quotes:none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content:'';
+    content:none;
+}
+
+a {
+    margin:0;
+    padding:0;
+    font-size:100%;
+    vertical-align:baseline;
+    background:transparent;
+}
+
+/* change colours to suit your needs */
+ins {
+    background-color:#ff9;
+    color:#000;
+    text-decoration:none;
+}
+
+/* change colours to suit your needs */
+mark {
+    background-color:#ff9;
+    color:#000;
+    font-style:italic;
+    font-weight:bold;
+}
+
+del {
+    text-decoration: line-through;
+}
+
+abbr[title], dfn[title] {
+    border-bottom:1px dotted;
+    cursor:help;
+}
+
+table {
+    border-collapse:collapse;
+    border-spacing:0;
+}
+
+/* change border colour to suit your needs */
+hr {
+    display:block;
+    height:1px;
+    border:0;
+    border-top:1px solid #cccccc;
+    margin:1em 0;
+    padding:0;
+}
+
+input, select {
+    vertical-align:middle;
+}
+
+:root {
+    --primary-color: #2196f3;
+    --error-color: #f44336;
+    --success-color: #4caf50;
+}
+
+* {
+    text-decoration: none;
+}
+
+html, body {
+    min-height: 120vh;
+    /* background-color: #eeeeee; */
+}
+
+#dxf-container {
+    min-height: 100%;
+    background-color: rgba(255, 255, 255, 0.85); /* Reduced opacity background */
+    margin: 20px 40px;
+    margin-top: calc(120px + var(--banner-height, 0px));
+    border-radius: 20px;
+    padding-bottom: 0px;
+    -webkit-box-shadow: 1px 6.5px 13px 2.5px rgba(221, 221, 221, 0.8);
+    -moz-box-shadow: 1px 6.5px 13px 2.5px rgba(221, 221, 221, 0.8);
+    box-shadow: 1px 6.5px 13px 2.5px rgba(221, 221, 221, 0.8);
+    position: relative;
+    z-index: 20;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Add a state for when scrolled */
+#dxf-container.scrolled {
+    background-color: rgba(255, 255, 255, 0.7); /* More transparent when scrolled */
+    -webkit-box-shadow: 1px 6.5px 13px 2.5px rgba(221, 221, 221, 0.6);
+    -moz-box-shadow: 1px 6.5px 13px 2.5px rgba(221, 221, 221, 0.6);
+    box-shadow: 1px 6.5px 13px 2.5px rgba(221, 221, 221, 0.6);
+}
+
+main {
+    overflow: auto;
+}
+
+.dxf-banner {
+    width: 100%;
+    height: 500px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    transition: all 0.3s ease;
+}
+
+.dxf-banner img {
+    width: 100%;
+    height: 500px;
+    display: block;
+    transition: filter 0.3s ease;
+}
+
+/* Apply blur directly to the image when scrolling */
+.dxf-banner.blurred img {
+    filter: blur(5px) brightness(0.9);
+}
+
+/* Add an overlay to darken the blurred banner slightly */
+.dxf-banner.blurred::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.2);
+    z-index: 1;
+}
+
+.intro {
+    text-align: center;
+    padding: 20px 0;
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.upload-container {
+    border: 3px dashed #ccc;
+    border-radius: 10px;
+    padding: 40px;
+    text-align: center;
+    margin: 20px 20px;
+    transition: all 0.3s ease;
+    background-color: white;
+}
+
+.upload-container:hover {
+    border-color: #2196f3;
+}
+
+.upload-container.drag-over {
+    border-color: var(--primary-color);
+    background-color: rgba(33, 150, 243, 0.1);
+}
+
+.upload-container i {
+    font-size: 48px;
+    color: #666;
+    margin-bottom: 15px;
+}
+
+.file-input {
+    display: none;
+}
+
+.file-label {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 12px 24px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    display: inline-block;
+    margin-top: 15px;
+}
+
+.file-label:hover {
+    background-color: #1976d2;
+}
+
+.download-container {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    margin: 20px 0;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.download-options {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-top: 15px;
+    flex-wrap: wrap;
+}
+
+.select-format {
+    appearance: menulist !important;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    min-width: 120px;
+}
+
+label.label-select {
+    margin-bottom: 0 !important;
+    color: #000 !important;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.button-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+}
+
+.download-button {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.download-button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.rotate-btn {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.canvas-container {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+#dxfCanvas {
+    background-color: black;
+    max-width: 100%;
+    max-height: 80vh;
+    margin: auto;
+    display: block;
+    border-radius: 5px;
+}
+
+.error-message {
+    color: var(--error-color);
+    margin-top: 10px;
+    display: none;
+}
+
+.success-message {
+    color: var(--success-color);
+    margin-top: 10px;
+    display: none;
+}
+
+.loading-spinner {
+    display: none;
+    width: 40px;
+    height: 40px;
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid var(--primary-color);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin: 20px auto;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@media (max-width: 600px) {
+    .download-options {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .download-button, .select-format {
+        width: 100%;
+    }
+}
+
+.dxf-footer {
+    background-color: #2c3e50;
+    color: #ecf0f1;
+    padding: 40px 0 20px;
+    margin-top: 30px;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.footer-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+
+.footer-logo {
+    flex: 0 0 100%;
+    max-width: 100%;
+    margin-bottom: 20px;
+}
+
+.footer-logo h3 {
+    margin-bottom: 10px;
+    font-size: 1.5rem;
+    color: #3498db;
+}
+
+.footer-links, .footer-social {
+    flex: 1;
+    min-width: 200px;
+    margin-bottom: 20px;
+}
+
+.footer-links h4, .footer-social h4 {
+    margin-bottom: 15px;
+    font-size: 1.1rem;
+    color: #3498db;
+}
+
+.footer-links ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-links ul li {
+    margin-bottom: 8px;
+}
+
+.footer-links ul li a {
+    color: #ecf0f1;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-links ul li a:hover {
+    color: #3498db;
+}
+
+.social-icons {
+    display: flex;
+    gap: 15px;
+}
+
+.social-icons a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    background-color: #34495e;
+    border-radius: 50%;
+    color: #ecf0f1;
+    transition: all 0.3s ease;
+}
+
+.social-icons a:hover {
+    background-color: #3498db;
+    transform: translateY(-3px);
+}
+
+.social-icons i {
+    font-size: 20px;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 20px;
+    border-top: 1px solid #34495e;
+}
+
+@media (min-width: 768px) {
+    .footer-logo {
+        flex: 0 0 30%;
+        max-width: 30%;
+        margin-bottom: 0;
+    }
+}
